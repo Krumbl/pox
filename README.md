@@ -12,15 +12,16 @@ Electron wrapper provided in `/electron`
     * `npm install -g typescript`
 
 ## Build
+`npm run build`
 ### Angular
-`ng build`
+`npm run build:angular`
 ### Electron
 `npm run build:electron`
 
 ## Development server
-
+`npm run build`
 ### Angular 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start:angular` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Electron
 Run `npm run start:electron` to run electron app that loads angular dev server

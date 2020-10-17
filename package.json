@@ -4,9 +4,8 @@
   "main": "dist/electron.js",
   "scripts": {
     "ng": "ng",
-    "start": "npm run start:angular & npm run start:electron",
-    "dev": "concurrently --names 'CLIENT,SERVER' --prefix-colors 'yellow,blue' --kill-others \"npm run start:angular\" \"npm run start:electron\"",
-    "build": "ng build",
+    "start": "concurrently --names 'CLIENT,SERVER' --prefix-colors 'yellow,blue' --kill-others \"npm run start:angular\" \"npm run start:electron\"",
+    "build": "npm run build:angular && npm run build:electron",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
