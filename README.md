@@ -2,9 +2,34 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
+Electron wrapper provided in `/electron`
+
+## Requirements
+* node
+* angular CLI
+    * `npm install -g @angular/cli`
+* tsc
+    * `npm install -g typescript`
+
+## Build
+### Angular
+`ng build`
+### Electron
+`npm run build:electron`
+
 ## Development server
 
+### Angular 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+### Electron
+Run `npm run start:electron` to run electron app that loads angular dev server
+
+## Release
+`npm run package`
+* TODO Loads packaged angular instead of dev server
+
+---
 
 ## Code scaffolding
 
