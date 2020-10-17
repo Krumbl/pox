@@ -1,13 +1,16 @@
 {
   "name": "pox",
   "version": "0.0.0",
+  "main": "dist/electron.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:electron": "ng build --prod --base-href ./ && tsc --lib ES2018,DOM --target ES5 electron/electron.ts --outDir dist",
+    "start:electron": "electron ."
   },
   "private": true,
   "dependencies": {
@@ -27,10 +30,11 @@
     "@angular-devkit/build-angular": "~0.1000.6",
     "@angular/cli": "~10.0.6",
     "@angular/compiler-cli": "~10.0.9",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "electron": "^10.1.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
