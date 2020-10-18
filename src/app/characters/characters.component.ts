@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IpcService } from '../ipc.service'
+import { IpcService } from '../services/ipc.service'
 
 @Component({
   selector: 'app-characters',

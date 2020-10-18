@@ -30,6 +30,10 @@ Run `npm run start:electron` to run electron app that loads angular dev server
 `npm run package`
 * TODO Loads packaged angular instead of dev server
 
+
+## UX
+https://material.angular.io/
+
 ---
 
 ## Code scaffolding

@@ -16,14 +16,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CharactersComponent } from './characters/characters.component';
+import { TestComponent } from './test/test.component';
+import { PcSummaryComponent } from './dashboard/pc-summary/pc-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashboardComponent,
-    CharactersComponent
+    CharactersComponent,
+    TestComponent,
+    PcSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { CharactersComponent } from './characters/characters.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule
   ],
   providers: [
     {

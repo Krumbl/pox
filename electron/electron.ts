@@ -1,6 +1,8 @@
+import { SelectMultipleControlValueAccessor } from "@angular/forms";
 // requires tsc to compile `npm install -g typescript`
 import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
+import { OS } from "./OS";
 
 let mainWindow: Electron.BrowserWindow;
 
@@ -26,4 +28,16 @@ ipcMain.on('my-custom-signal', (event, arg) => {
     // console.log(event);
     console.log(arg);
     mainWindow.webContents.send('other-custom-signal', 'message from the backend process');
+});
+
+ipcMain.on('os.cpu', async (event, arg) => {
+    console.log('os.cpu')
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    mainWindow.webContents.send('os.cpu', OS.getCpus());
+});
+
+ipcMain.on('os.memory', async (event, arg) => {
+    console.log('os.memory')
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    mainWindow.webContents.send('os.memory', OS.getMemory());
 });
