@@ -20,6 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CharactersComponent } from './characters/characters.component';
 import { TestComponent } from './test/test.component';
 import { PcSummaryComponent } from './dashboard/pc-summary/pc-summary.component';
+import { CharacterSummaryComponent } from './dashboard/character-summary/character-summary.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PcSummaryComponent } from './dashboard/pc-summary/pc-summary.component'
     DashboardComponent,
     CharactersComponent,
     TestComponent,
-    PcSummaryComponent
+    PcSummaryComponent,
+    CharacterSummaryComponent
   ],
   imports: [
     BrowserModule,

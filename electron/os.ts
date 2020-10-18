@@ -1,5 +1,3 @@
-import { getCPUUsage } from "process"
-
 var os = require('os')
 
 export class OS {

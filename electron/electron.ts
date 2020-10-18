@@ -3,6 +3,7 @@ import { SelectMultipleControlValueAccessor } from "@angular/forms";
 import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 import { OS } from "./OS";
+import { DataStore } from "./mbox/dataStore";
 
 let mainWindow: Electron.BrowserWindow;
 
@@ -40,4 +41,9 @@ ipcMain.on('os.memory', async (event, arg) => {
     console.log('os.memory')
     await new Promise(resolve => setTimeout(resolve, 2000));
     mainWindow.webContents.send('os.memory', OS.getMemory());
+});
+
+ipcMain.on('character.summary', (event,args) => {
+    console.log('character.summary')
+    mainWindow.webContents.send('character.summary', 'empty');
 });
