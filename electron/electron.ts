@@ -4,6 +4,11 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 import { OS } from "./OS";
 import { DataStore } from "./mbox/dataStore";
+import { Log } from "./log";
+
+const log = new Log()
+
+const dataStore = new DataStore('/Applications/World of Warcraft/_retail_/WTF');
 
 let mainWindow: Electron.BrowserWindow;
 
@@ -32,18 +37,18 @@ ipcMain.on('my-custom-signal', (event, arg) => {
 });
 
 ipcMain.on('os.cpu', async (event, arg) => {
-    console.log('os.cpu')
+    log.trace('os.cpu')
     await new Promise(resolve => setTimeout(resolve, 2000));
     mainWindow.webContents.send('os.cpu', OS.getCpus());
 });
 
 ipcMain.on('os.memory', async (event, arg) => {
-    console.log('os.memory')
+    log.trace('os.memory')
     await new Promise(resolve => setTimeout(resolve, 2000));
     mainWindow.webContents.send('os.memory', OS.getMemory());
 });
 
 ipcMain.on('character.summary', (event,args) => {
-    console.log('character.summary')
-    mainWindow.webContents.send('character.summary', 'empty');
+    log.trace('character.summary')
+    mainWindow.webContents.send('character.summary', dataStore.currency.getText());
 });
