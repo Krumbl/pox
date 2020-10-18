@@ -23,7 +23,7 @@ app.on("window-all-closed", () => {app.quit()});
 
 ipcMain.on('my-custom-signal', (event, arg) => {
     console.log('Print to the main process terminal (STDOUT) when signal received from renderer process.');
-    console.log(event);
+    // console.log(event);
     console.log(arg);
     mainWindow.webContents.send('other-custom-signal', 'message from the backend process');
 });
