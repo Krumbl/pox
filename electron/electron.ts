@@ -8,12 +8,16 @@ import { Log } from "./log";
 
 const log = new Log()
 
-const dataStore = new DataStore('/Applications/World of Warcraft/_retail_/WTF');
+// const dataStore = new DataStore('/Applications/World of Warcraft/_retail_/WTF');
+const dataStore = new DataStore('D:\\Blizzard\\World of Warcraft\\_retail_\\WTF')
 
 let mainWindow: Electron.BrowserWindow;
 
 app.on("ready", () => {
     mainWindow = new BrowserWindow({
+        x: 2600,
+        y: 1000,
+        width:1200,
         webPreferences: {
             nodeIntegration: true, // Allows IPC and other APIs
         }
@@ -51,4 +55,13 @@ ipcMain.on('os.memory', async (event, arg) => {
 ipcMain.on('character.summary', (event,args) => {
     log.trace('character.summary')
     mainWindow.webContents.send('character.summary', dataStore.currency.getText());
+});
+
+ipcMain.on('query', (event, request) => {
+    log.info('query ' + request);
+    if (request === 'accounts') {
+        log.warn('query accounts ' + dataStore.accounts.size)
+        mainWindow.webContents.send('query.accounts', dataStore.accounts)
+    }
+    
 });

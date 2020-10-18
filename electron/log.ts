@@ -1,6 +1,6 @@
 const elog = require('electron-log');
 elog.transports.console.format = '{iso} [{level}] [{processType}] {text}';
-elog.transports.console.level = 'trace'
+elog.transports.console.level = 'info'
 const clog = require('console');
 
 export class Log {

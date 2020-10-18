@@ -1,1 +1,17 @@
 <p>characters works!</p>
+
+<ul>
+    <li *ngFor="let a of accounts | keyvalue">
+        {{a.key}}
+        <ul>
+            <li *ngFor="let s of a.value.servers | keyvalue">
+                {{s.key}}
+                <ul>
+                    <li *ngFor="let c of s.value.characters | keyvalue">
+                        {{c.key}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

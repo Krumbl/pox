@@ -53,7 +53,7 @@ export class IpcService {
   // TODO add sendSync
   send(channel: string, ...args: any[]) {
     if (this.ipcRenderer) {
-      this.ipcRenderer.send(channel, args)
+      this.ipcRenderer.send(channel, ...args)
     }
   }
 
