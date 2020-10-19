@@ -10,6 +10,9 @@ import { Account } from './models/account'
 export class CharactersComponent implements OnInit {
 
   accounts: Map<string, Account>
+  servers
+
+  accountsList
 
   constructor(
     private ipcService: IpcService,
@@ -17,14 +20,6 @@ export class CharactersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.ipcService.on('other-custom-signal', (event, arg) => {
-      // console.log('Received acknowledged from backend about receipt of our signal.');
-      // console.log(arg);
-    // })
-
-    // console.log('Sending message to backend.');
-    // this.ipcService.send('my-custom-signal', 'hello, are you there?');
-
     this.fetchCharacters()
   }
 
@@ -33,9 +28,21 @@ export class CharactersComponent implements OnInit {
       console.log('account response ' + args.size)
       
       this.accounts = args
+      console.log(this.accounts)
+      // FIXME use real account list
+      this.servers = Array.from(this.accounts.values())[7].servers
       this.cdRef.detectChanges();
     });
     this.ipcService.send('query', 'accounts');
+
+    // TODO change from `full` data model resposne
+    this.ipcService.once('query.accountsList', (event, args) => {
+      console.log('account response ' + args.size)
+      
+      this.accountsList = args
+      this.cdRef.detectChanges();
+    });
+    this.ipcService.send('query', 'accountsList');
   }
 
 }

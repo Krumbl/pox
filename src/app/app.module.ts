@@ -21,6 +21,8 @@ import { CharactersComponent } from './characters/characters.component';
 import { TestComponent } from './test/test.component';
 import { PcSummaryComponent } from './dashboard/pc-summary/pc-summary.component';
 import { CharacterSummaryComponent } from './dashboard/character-summary/character-summary.component';
+import { MaterialDashboardComponent } from './material-dashboard/material-dashboard.component';
+import { CharacterComponent } from './characters/character/character.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CharacterSummaryComponent } from './dashboard/character-summary/charact
     CharactersComponent,
     TestComponent,
     PcSummaryComponent,
-    CharacterSummaryComponent
+    CharacterSummaryComponent,
+    MaterialDashboardComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,

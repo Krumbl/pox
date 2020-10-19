@@ -1,4 +1,32 @@
-<p>characters works!</p>
+<!-- TODO need full server list here instead of peeking into accounts -->
+<!-- why is click misbehaving https://stackoverflow.com/a/60598080-->
+<mat-expansion-panel *ngFor="let server of servers | keyvalue" expanded>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{server.key}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- TODO row height should auto scale-->
+    <mat-grid-list cols="{{accounts.size}}" rowHeight="750px">
+        <mat-grid-tile *ngFor="let account of accounts | keyvalue">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{account.key}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content *ngFor="let accountServer of account.value.servers | keyvalue" class="dashboard-card-content">
+                    <div *ngIf="server.key === accountServer.key">
+                        <p *ngFor="let character of accountServer.value.characters | keyvalue">
+                            <app-character [character]="character.value"></app-character>
+                        </p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-expansion-panel>
+
 
 <ul>
     <li *ngFor="let a of accounts | keyvalue">
@@ -9,6 +37,7 @@
                 <ul>
                     <li *ngFor="let c of s.value.characters | keyvalue">
                         {{c.key}}
+                        {{c.value.currency.text}}
                     </li>
                 </ul>
             </li>

@@ -1,13 +1,17 @@
 'use strict'
 
+import { Server } from "http"
+import { Class } from "./class"
+import { Currency } from "./currency"
+
 export class Character {
-    currency
-    level
-    class
-    name
-    server
-    ilvl
-    crafting
+    currency: Currency
+    level: string
+    class: Class
+    name: string
+    server: Server
+    ilvl: string
+    crafting: []
 
     constructor(name) {
         this.name = name
