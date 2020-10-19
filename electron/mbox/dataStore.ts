@@ -40,7 +40,7 @@ export class DataStore {
                             this.log.trace(account.servers);
                         }
                         account.servers.get(character.server).characters.set(character.name, (character));
-                        character.server = account.servers.get(character.server);
+                        // character.server = account.servers.get(character.server);
                     });
                     this.log.trace("add account " + account.name + this.log.stringify(account))
                     this.accounts.set(account.name, account)

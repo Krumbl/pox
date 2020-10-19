@@ -1,6 +1,5 @@
 'use strict'
 
-import { Server } from "http"
 import { Class } from "./class"
 import { Currency } from "./currency"
 
@@ -9,9 +8,9 @@ export class Character {
     level: string
     class: Class
     name: string
-    server: Server
+    server: string 
     ilvl: string
-    crafting: []
+    crafting: any
 
     constructor(name) {
         this.name = name
