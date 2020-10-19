@@ -9,7 +9,7 @@ export class Character {
     level: string
     class: Class
     name: string
-    server: Server
+    server: string
     ilvl: string
     crafting: []
 

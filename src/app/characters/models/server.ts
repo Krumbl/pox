@@ -3,6 +3,7 @@ import { Character } from "./character"
 
 export class Server {
     name: string
+    // FIXME server is not specific to an account
     account: Account
     characters: Map<string, Character>
 

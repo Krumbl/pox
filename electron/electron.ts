@@ -62,9 +62,11 @@ ipcMain.on('query', (event, request) => {
     if (request === 'accounts') {
         log.warn('query accounts ' + dataStore.accounts.size)
         mainWindow.webContents.send('query.accounts', dataStore.accounts)
-    } else if (request === 'accountsList') {
-        log.warn('query accountsList ' + dataStore.accounts.size)
-        mainWindow.webContents.send('query.accountsList', dataStore.accounts)
+    } else if (request === 'accountList') {
+        log.warn('query accountList ' + dataStore.accounts.size)
+        mainWindow.webContents.send('query.accountList', dataStore.accounts)
+    } else if (request === 'serverList') {
+        mainWindow.webContents.send('query.serverList', dataStore.servers)
     }
     
 });

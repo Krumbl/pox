@@ -30,19 +30,19 @@ export class CharactersComponent implements OnInit {
       this.accounts = args
       console.log(this.accounts)
       // FIXME use real account list
-      this.servers = Array.from(this.accounts.values())[7].servers
+      // this.servers = Array.from(this.accounts.values())[7].servers
       this.cdRef.detectChanges();
     });
-    this.ipcService.send('query', 'accounts');
+    // this.ipcService.send('query', 'accounts');
 
-    // TODO change from `full` data model resposne
-    this.ipcService.once('query.accountsList', (event, args) => {
-      console.log('account response ' + args.size)
+    this.ipcService.once('query.serverList', (event, args) => {
+      console.log('server response ' + args.size)
       
-      this.accountsList = args
-      this.cdRef.detectChanges();
+      this.servers = args
+      this.ipcService.send('query', 'accounts');
+      // this.cdRef.detectChanges();
     });
-    this.ipcService.send('query', 'accountsList');
+    this.ipcService.send('query', 'serverList');
   }
 
 }

@@ -1,0 +1,21 @@
+.grid-container {
+  margin: 18px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  right: 13px;
+  bottom: 13px;
+}
+
+.more-button {
+  position: absolute;
+  top: 3px;
+  right: 8px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}

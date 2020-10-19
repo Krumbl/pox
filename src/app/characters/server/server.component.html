@@ -1,0 +1,28 @@
+<mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{server.name}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- TODO row height should auto scale-->
+    <!-- TODO cols should be from number of accounts -->
+    <mat-grid-list cols="8" rowHeight="750px">
+        <mat-grid-tile *ngFor="let account of accounts | keyvalue">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{account.value.name}}
+                    </mat-card-title>
+                </mat-card-header>
+                <!-- TODO replace with character query -->
+                <mat-card-content *ngFor="let accountServer of account.value.servers | keyvalue" class="dashboard-card-content">
+                    <div *ngIf="server.name === accountServer.key">
+                        <p *ngFor="let character of accountServer.value.characters | keyvalue">
+                            <app-character [character]="character.value"></app-character>
+                        </p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-expansion-panel>
