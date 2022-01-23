@@ -1,5 +1,9 @@
 # Pox
 
+Learning project with electron/angular.
+
+Start with `npm run start` will luanch both the server and client.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
 Electron wrapper provided in `/electron`
